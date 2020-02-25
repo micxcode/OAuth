@@ -1,0 +1,31 @@
+{
+  "name": "oauth",
+  "version": "1.0.0",
+  "description": "SPGF - Authenticator",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "express": "^4.17.1",
+    "init": "^0.1.2",
+    "npm": "^6.13.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micxcode/OAuth.git"
+  },
+  "keywords": [
+    "OAuth"
+  ],
+  "author": "Michel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/micxcode/OAuth/issues"
+  },
+  "homepage": "https://github.com/micxcode/OAuth#readme"
+}
