@@ -27,6 +27,6 @@ module.exports = (app) => {
     
     app.post('/Login', (req, res) =>{
         var login = new login_manager();
-        login.validarLogin(req.data);
+        login.validarLogin(req.body);
     });
 }

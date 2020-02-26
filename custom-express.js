@@ -1,12 +1,20 @@
-var express = require('express');
-var consign = require('consign');
-var bodyParser = require('body-parser');
+require('dotenv').config();
+const express = require('express');
+const consign = require('consign');
+//const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use(bodyParser.json())
+app.disable('x-powered-by'); //referência de que o Express/Node compõem a lista de tecnologias utilizadas, isso irá afastar rotinas mais simples de varredura e ataques automatizados;
 
-consign()
+//app.use(bodyParser.json({ type: 'application/json' }));
+
+consign({
+    cwd: 'app',
+    verbose: process.env.APP_DEBUG === 'true' || false,
+    locale: 'pt-br'
+    })
+    .include('./node_modules/globals')
     .include('Controllers')
     .into(app);
 
