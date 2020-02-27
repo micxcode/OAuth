@@ -11,16 +11,25 @@ module.exports = (app) => {
     });
 
     app.get('/Service:id', (req, res) => {
-        
+        var service = new service_manager();
+
+        try {
+            var obj = service.getService(req.id);
+        }
+        catch (e) {
+            res.status(404).send(e);
+        }
+
+        res.json(obj);
     });
 
     app.post('/Service', (req, res) => {
         var service = new service_manager();
 
-        try{
+        try {
             service.addService(req.body.data);
         }
-        catch(e){
+        catch (e) {
             res.status(500).send(e);
         }
 
@@ -30,10 +39,10 @@ module.exports = (app) => {
     app.delete('/Service', (req, res) => {
         var service = new service_manager();
 
-        try{
+        try {
             service.removeService(req.body);
         }
-        catch(e){
+        catch (e) {
             res.status(500).send(e);
         }
 
@@ -43,10 +52,10 @@ module.exports = (app) => {
     app.put('/Service', (req, res) => {
         var service = new service_manager();
 
-        try{
+        try {
             service.editService(req.body);
         }
-        catch(e){
+        catch (e) {
             res.status(500).send(e);
         }
 

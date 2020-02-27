@@ -1,70 +1,75 @@
-class DataBaseManager{
+class DataBaseManager {
 
-    saveToken(){
-
-    }
-
-    searchUser(){
+    saveToken() {
 
     }
 
-    validateUser(){
+    searchUser() {
 
     }
 
-    addUser(){
+    validateUser() {
 
     }
 
-    removeUser(){
+    addUser() {
 
     }
 
-    editUser(){
+    removeUser() {
 
     }
 
-    listServices(){
+    editUser() {
+
+    }
+
+    listServices() {
+
         return 'Ok';
     }
 
-    searchServiceByName(name){
+    getServiceById(id) {
 
     }
 
-    searchServiceByDomain(domain){
+    searchServiceByName(name) {
 
     }
 
-    searchServiceById(id){
+    searchServiceByDomain(domain) {
 
     }
 
-    addService(name, domain){
+    searchServiceById(id) {
 
     }
 
-    removeService(id){
+    addService(name, domain) {
 
     }
 
-    editService(id, name, domain){
-        
-    }
-
-    searchProfile(){
+    removeService(id) {
 
     }
 
-    addProfile(){
+    editService(id, name, domain) {
 
     }
 
-    removeProfile(){
+    searchProfile() {
 
     }
 
-    editProfile(){
+    addProfile() {
+
+    }
+
+    removeProfile() {
+
+    }
+
+    editProfile() {
 
     }
 }

@@ -10,12 +10,12 @@ app.disable('x-powered-by'); //referência de que o Express/Node compõem a list
 //app.use(bodyParser.json({ type: 'application/json' }));
 
 consign({
-    cwd: 'app',
+    //cwd: 'app',
     verbose: process.env.APP_DEBUG === 'true' || false,
     locale: 'pt-br'
-    })
-    .include('./node_modules/globals')
-    .include('Controllers')
+})
+    .include('middlewares/modules.js')
+    .then('Controllers')
     .into(app);
 
 module.exports = app;
