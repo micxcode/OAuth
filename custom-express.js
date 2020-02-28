@@ -14,7 +14,7 @@ consign({
     verbose: process.env.APP_DEBUG === 'true' || false,
     locale: 'pt-br'
 })
-    .include('middlewares/modules.js')
+    .include('Middlewares/modules.js')
     .then('Controllers')
     .into(app);
 

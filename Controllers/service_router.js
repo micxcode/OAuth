@@ -1,4 +1,5 @@
 var service_manager = require('../Adapters/service_manager');
+var validator = require('../Validators/service_validator');
 
 module.exports = (app) => {
 
@@ -23,11 +24,11 @@ module.exports = (app) => {
         res.json(obj);
     });
 
-    app.post('/Service', (req, res) => {
+    app.post('/Service', validator, (req, res) => {
         var service = new service_manager();
 
         try {
-            service.addService(req.body.data);
+            service.addService(req.body);
         }
         catch (e) {
             res.status(500).send(e);
