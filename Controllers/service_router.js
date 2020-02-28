@@ -24,7 +24,7 @@ module.exports = (app) => {
         res.json(obj);
     });
 
-    app.post('/Service', validator, (req, res) => {
+    app.post('/Service'/*, validator*/, (req, res) => {
         var service = new service_manager();
 
         try {
