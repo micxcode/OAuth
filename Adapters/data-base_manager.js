@@ -12,15 +12,23 @@ class DataBaseManager {
 
     }
 
+    listUser(){
+
+    }
+
+    getUserById(id){
+
+    }
+
     addUser() {
 
     }
 
-    removeUser() {
+    removeUser(id) {
 
     }
 
-    editUser() {
+    editUser(id) {
 
     }
 
@@ -65,11 +73,11 @@ class DataBaseManager {
 
     }
 
-    removeProfile() {
+    removeProfile(id) {
 
     }
 
-    editProfile() {
+    editProfile(id) {
 
     }
 }

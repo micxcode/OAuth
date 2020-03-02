@@ -1,18 +1,18 @@
 var db_manager = require('../Adapters/data-base_manager');
 
-class Login{
+class AuthManager{
 
     constructor(){
         this.db = new db_manager();
     }
 
-    validarLogin(user, password){
-        
+    generateHash(userId){
+
     }
 
-    gerarJWT(){
-        
+    validateToken(token){
+
     }
 }
 
-module.exports = Login;
+module.exports = AuthManager;

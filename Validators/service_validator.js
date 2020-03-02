@@ -28,16 +28,20 @@
 
 // module.exports = ServiceValidator;
 
-const { check, validationResult } = require('express-validator');
-
 module.exports = (req, res, next) => {
-    check('name', 'Invalid service name value.').notEmpty();
-    check('domain', 'Invalid service domain value.').notEmpty();
+  req.checkBody('name', 'Invalid service name value.').notEmpty();
+  req.checkBody('domain', 'Invalid service domain value.').notEmpty();
+  
+  const errors = req.validationErrors();
 
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(422).json({ errors: errors.array() });
-      }
-    return next();
+  if (errors) {
+    var response = { errors: [] };
+    errors.forEach(function(err) {
+      response.errors.push(err.param + ': ' + err.msg);
+    });
 
+    return res.status(400).json(response);
+  }
+
+  return next();
 }
