@@ -1,4 +1,5 @@
 var user_manager = require('../Adapters/user_manager');
+var validate = require('../Validators/user_validator');
 
 module.exports = (app) => {
 
