@@ -22,26 +22,6 @@ class AuthAPIManager{
         return hash;
     }
 
-    validateLogin(email, password, hash){
-        if(!this.token_db.searchTokenByHash(hash)){
-            return false;
-        }
-
-        //Lógica de Login.....
-        let user_id = this.user_db.getUserIdByEmail(email);
-
-        if(!user_id || user_id === null){
-            return false;
-        }
-
-        //Lembretes:    - Checar os Perfis do usuário para ver se o mesmo pode logar no serviço desejado
-        //............
-
-        this.token_db.validateToken(user_id);
-
-        return true;
-    }
-
     checkToken(secret, hash){
         // ========== ATENÇÃO A VALIDAÇÕES =======
         let service_id = this.service_db.getServiceIdBySecret(secret);
