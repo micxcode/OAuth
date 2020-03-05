@@ -15,7 +15,7 @@ module.exports = (app) => {
         var service = new service_manager();
 
         try {
-            var obj = service.getService(req.id);
+            var obj = service.getService(req.params.id);
         }
         catch (e) {
             res.status(404).send(e);

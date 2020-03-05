@@ -10,7 +10,8 @@ module.exports = (app) => {
             //Redirecionar?
         }
 
-        else if (!auth.Authorization(req.cookies)) {
+        //Necessário? Acredito que qualquer usuário já logado possui autorização total
+        else if (!auth.Authorization(req.cookies, req.path, req.method)) {
             return res.status(401).send('Não Autorizado.');
         }
 

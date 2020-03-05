@@ -8,8 +8,12 @@ class AuthManager {
         return true;
     }
 
-    Authorization(cookie, req) {
+    Authorization(cookie, path, method) {
         return true;
+    }
+
+    gerarJWT(){
+        
     }
 }
 
