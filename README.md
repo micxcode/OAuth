@@ -34,3 +34,5 @@ Security
 Possíveis librarys úteis
 
 - https://www.npmjs.com/package/request-promise-native --> Uso de Promise para o assincronismo
+- https://github.com/winstonjs/winston --> Logger
+- https://github.com/winstonjs/winston-mongodb --> Logger with mongo
