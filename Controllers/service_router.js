@@ -6,60 +6,77 @@ module.exports = (app) => {
     app.get('/Service', (req, res) => {
         var service = new service_manager();
 
-        var list = service.listService();
+        try {
+            let list = service.listService();
 
-        res.json(list);
+            return res.json(list);
+        } 
+        catch (e) {
+            return res.status(500).send(e);
+        }
     });
 
     app.get('/Service/:id', validator.get, (req, res) => {
         var service = new service_manager();
 
         try {
-            var obj = service.getService(req.params.id);
+            let obj = service.getService(req.params.id);
+
+            return res.json(obj);
         }
         catch (e) {
-            res.status(404).send(e);
+            return res.status(500).send(e);
         }
-
-        res.json(obj);
     });
 
     app.post('/Service', validator.post, (req, res) => {
         var service = new service_manager();
 
         try {
-            service.addService(req.body);
+            let adicionado = service.addService(req.body);
+
+            if(!adicionado){
+                return res.status(400).send('Não foi possível adicionar o Serviço.');
+            }
+
+            return res.status(201).send('Ok');
         }
         catch (e) {
-            res.status(500).send(e);
+            return res.status(500).send(e);
         }
-
-        res.status(201).send('Ok');
     });
 
     app.delete('/Service', validator.delete, (req, res) => {
         var service = new service_manager();
 
         try {
-            service.removeService(req.body);
+            let deletado = service.removeService(req.body);
+
+            if(!deletado){
+                return res.send(400).send('Não foi possível deletar o Serviço.');
+            }
+
+            return res.status(204).send('Serviço Deletado.');
         }
         catch (e) {
-            res.status(500).send(e);
+            return res.status(500).send(e);
         }
-
-        res.send('Ok');
     });
 
     app.put('/Service', validator.put, (req, res) => {
         var service = new service_manager();
 
         try {
-            service.editService(req.body);
+            let editado = service.editService(req.body);
+
+            if(!editado){
+                return res.status(400).send('Não foi possível editar o Serviço.');
+            }
+
+            return res.status(204).send('Serviço Editado.');
         }
         catch (e) {
-            res.status(500).send(e);
+            return res.status(500).send(e);
         }
-
-        res.send('Ok');
     });
 }
